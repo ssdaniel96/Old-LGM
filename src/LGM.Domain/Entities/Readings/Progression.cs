@@ -1,7 +1,7 @@
 ﻿using LGM.Domain.Entities.Base;
 using LGM.Domain.Validators.Entities.Lectures;
 
-namespace LGM.Domain.Entities.Lectures
+namespace LGM.Domain.Entities.Readings
 {
     public sealed class Progression : Entity
     {

@@ -1,10 +1,10 @@
 ﻿using FluentAssertions;
-using LGM.Domain.Entities.Lectures;
+using LGM.Domain.Entities.Readings;
 using LGM.Domain.Exceptions.Validations;
 using System;
 using Xunit;
 
-namespace LGM.Domain.Tests.Entities.Lectures
+namespace LGM.Domain.Tests.Entities.Readings
 {
     public class ProgressionTest
     {
