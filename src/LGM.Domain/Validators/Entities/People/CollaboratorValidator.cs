@@ -1,14 +1,11 @@
 ﻿using LGM.Domain.Exceptions.Validations;
+using LGM.Domain.Extensions;
 
 namespace LGM.Domain.Validators.Entities.People
 {
     public static class CollaboratorValidator
     {
-        public static bool IsValidName(string name)
-        {
-            return !string.IsNullOrWhiteSpace(name)
-                   && name.Length is > 2 and <= 50;
-        }
+        public static bool IsValidName(string name) => name.IsInLengthRange(3, 50);
 
         public static void ValidateName(string name)
         {
