@@ -1,5 +1,5 @@
-﻿using LGM.Domain.Extensions;
-using System.ComponentModel.DataAnnotations;
+﻿using LGM.Domain.Exceptions.Validations;
+using LGM.Domain.Extensions;
 
 namespace LGM.Domain.Validators.Entities.Books
 {
@@ -32,7 +32,7 @@ namespace LGM.Domain.Validators.Entities.Books
                 throw new ValidationException("Autor está inválido! Necessita ter entre 3 a 50 caracteres!");
 
             if (!IsValidTitle(title))
-                throw new ValidationException("Título está inválido! Necessita ter entre 1 a 100 caracteres!");
+                throw new ValidationException("Título está inválido! Necessita ter entre 3 a 100 caracteres!");
 
             if (!IsValidTotalPages(totalPages))
                 throw new ValidationException("O total de páginas deve ser superior a 0!");
