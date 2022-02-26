@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using LGM.Domain.Exceptions.Validations;
 
 namespace LGM.Domain.Validators.Entities.Lectures
 {
