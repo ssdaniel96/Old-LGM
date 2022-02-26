@@ -1,0 +1,4 @@
+Requisitos
+
+- Criar grupos de colaboradores
+- Esses grupos de colaboradores podem criar planos de leitura
