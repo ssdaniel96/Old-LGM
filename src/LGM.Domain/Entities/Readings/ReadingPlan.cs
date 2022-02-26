@@ -1,11 +1,12 @@
 ﻿// ReSharper disable CollectionNeverUpdated.Local
+
 using LGM.Domain.Entities.Base;
 using LGM.Domain.Entities.Books;
 using LGM.Domain.Entities.People;
 
-namespace LGM.Domain.Entities.Lectures
+namespace LGM.Domain.Entities.Readings
 {
-    public sealed class LecturePlan : Entity
+    public sealed class ReadingPlan : Entity
     {
         public Group Group { get; private set; }
         public Book Book { get; private set; }
@@ -13,7 +14,7 @@ namespace LGM.Domain.Entities.Lectures
         public IReadOnlyCollection<Reminder> Reminders => _reminders.AsReadOnly();
         private readonly List<Reminder> _reminders = new();
 
-        public LecturePlan(Group @group, Book book, Progression progression)
+        public ReadingPlan(Group @group, Book book, Progression progression)
         {
             Group = @group;
             Book = book;

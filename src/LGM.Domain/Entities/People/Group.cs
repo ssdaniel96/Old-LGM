@@ -1,6 +1,6 @@
 ﻿// ReSharper disable CollectionNeverUpdated.Local
 using LGM.Domain.Entities.Base;
-using LGM.Domain.Entities.Lectures;
+using LGM.Domain.Entities.Readings;
 
 namespace LGM.Domain.Entities.People
 {
@@ -10,8 +10,8 @@ namespace LGM.Domain.Entities.People
         public IReadOnlyCollection<Collaborator> Collaborators => _collaborators.AsReadOnly();
         private readonly List<Collaborator> _collaborators = new();
 
-        public IReadOnlyCollection<LecturePlan> LecturePlans => _lecturePlans.AsReadOnly();
-        private readonly List<LecturePlan> _lecturePlans = new();
+        public IReadOnlyCollection<ReadingPlan> ReadingPlans => _readingPlans.AsReadOnly();
+        private readonly List<ReadingPlan> _readingPlans = new();
 
         public Group(string description)
         {

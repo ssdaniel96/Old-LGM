@@ -2,7 +2,7 @@
 using LGM.Domain.Entities.People;
 using LGM.Domain.Validators.Entities.Lectures;
 
-namespace LGM.Domain.Entities.Lectures
+namespace LGM.Domain.Entities.Readings
 {
     public sealed class Reminder : Entity
     {
