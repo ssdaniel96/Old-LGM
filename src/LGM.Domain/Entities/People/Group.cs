@@ -1,6 +1,7 @@
 ﻿// ReSharper disable CollectionNeverUpdated.Local
 using LGM.Domain.Entities.Base;
 using LGM.Domain.Entities.Readings;
+using LGM.Domain.Validators.Entities.People;
 
 namespace LGM.Domain.Entities.People
 {
@@ -15,6 +16,7 @@ namespace LGM.Domain.Entities.People
 
         public Group(string description)
         {
+            GroupValidator.Validate(description);
             Description = description;
         }
     }

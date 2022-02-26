@@ -7,11 +7,12 @@ namespace LGM.Domain.Entities.People
     {
         public string Name { get; private set; }
 
-        public IReadOnlyCollection<Collaborator> Collaborators { get; private set; } = new List<Collaborator>();
+        public IReadOnlyCollection<Collaborator> Collaborators { get; private set; } = 
+            new List<Collaborator>().AsReadOnly();
 
         public Squad(string name)
         {
-            SquadValidator.IsValidName(name);
+            SquadValidator.ValidateName(name);
             Name = name;
         }
 
