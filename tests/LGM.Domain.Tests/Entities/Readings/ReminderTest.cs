@@ -1,7 +1,9 @@
 ﻿using Bogus;
 using FluentAssertions;
+using LGM.Domain.Entities.Groups;
 using LGM.Domain.Entities.People;
 using LGM.Domain.Entities.Readings;
+using LGM.Domain.Enums.Groups;
 using System;
 using Xunit;
 
@@ -9,7 +11,18 @@ namespace LGM.Domain.Tests.Entities.Readings
 {
     public class ReminderTest
     {
-        private static Collaborator GetValidCollaborator() => new(new Faker().Person.FullName);
+
+        private static GroupIdentity GetValidGroupIdentity()
+        {
+            return new(11231233, SourceTypeEnum.Telegram);
+        }
+
+        private static Group GetValidGroup()
+        {
+            return new("Descrição válida", GetValidGroupIdentity());
+        }
+
+        private static Member GetValidCollaborator() => new(new Faker().Person.FullName, GetValidGroup());
 
         [Fact]
         public void Create_Valid_NoExceptions()
@@ -32,9 +45,9 @@ namespace LGM.Domain.Tests.Entities.Readings
                 collaboratorName2 = new Faker().Person.FullName,
                 collaboratorName3 = new Faker().Person.FullName;
 
-            Collaborator collaborator1 = new(collaboratorName1),
-                collaborator2 = new(collaboratorName2),
-                collaborator3 = new(collaboratorName3);
+            Member collaborator1 = new(collaboratorName1, GetValidGroup()),
+                collaborator2 = new(collaboratorName2, GetValidGroup()),
+                collaborator3 = new(collaboratorName3, GetValidGroup());
 
             var expected = new
             {

@@ -1,7 +1,9 @@
 ﻿using FluentAssertions;
 using LGM.Domain.Entities.Books;
+using LGM.Domain.Entities.Groups;
 using LGM.Domain.Entities.People;
 using LGM.Domain.Entities.Readings;
+using LGM.Domain.Enums.Groups;
 using System;
 using System.Collections.Generic;
 using Xunit;
@@ -10,14 +12,20 @@ namespace LGM.Domain.Tests.Entities.Readings
 {
     public class ReadingPlanTest
     {
-        private static Group GetValidGroup() => new("Espartanos");
+        private static GroupIdentity GetValidGroupIdentity()
+        {
+            return new(11231233, SourceTypeEnum.Telegram);
+        }
+
+        private static Group GetValidGroup() => new("Espartanos", GetValidGroupIdentity());
 
         private static Book GetValidBook() => new(
             "Ellen G. White",
             "O Grande Conflito",
             700,
             50,
-            "http://www.google.com");
+            "http://www.google.com",
+            GetValidGroup());
 
         private static Progression GetValidProgression() => new(1, 1, 1);
 
@@ -47,8 +55,14 @@ namespace LGM.Domain.Tests.Entities.Readings
                 {
                     Id = 0,
                     Description = group.Description,
-                    Collaborators = new List<Collaborator>().AsReadOnly(),
-                    ReadingPlans = new List<ReadingPlan>().AsReadOnly()
+                    Members = new List<Member>().AsReadOnly(),
+                    ReadingPlans = new List<ReadingPlan>().AsReadOnly(),
+                    GroupIdentity = new
+                    {
+                        Id = 0,
+                        SourceId = 11231233,
+                        SourceTypeEnum = SourceTypeEnum.Telegram
+                    }
                 },
                 Book = new
                 {

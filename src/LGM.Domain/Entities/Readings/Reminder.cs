@@ -6,17 +6,17 @@ namespace LGM.Domain.Entities.Readings
 {
     public sealed class Reminder : Entity
     {
-        public Collaborator KickOf { get; private set; }
-        public Collaborator Responsible { get; private set; }
-        public Collaborator Prayer { get; private set; }
+        public Member KickOf { get; private set; }
+        public Member Responsible { get; private set; }
+        public Member Prayer { get; private set; }
         public int Chapter { get; private set; }
         public int PageNumber { get; private set; }
         public int Paragraph { get; private set; }
 
         public Reminder(
-            Collaborator kickOf,
-            Collaborator responsible,
-            Collaborator prayer,
+            Member kickOf,
+            Member responsible,
+            Member prayer,
             int chapter,
             int pageNumber,
             int paragraph)
