@@ -1,4 +1,5 @@
 ﻿using LGM.Domain.Entities.Base;
+using LGM.Domain.Entities.Groups;
 using LGM.Domain.Validators.Entities.Books;
 
 namespace LGM.Domain.Entities.Books
@@ -10,14 +11,16 @@ namespace LGM.Domain.Entities.Books
         public int TotalPages { get; private set; }
         public int TotalChapters { get; private set; }
         public Uri? Uri { get; private set; }
+        public Group Group { get; private set; }
 
-        public Book(string author, string title, int totalPages, int totalChapters, string? uri)
+        public Book(string author, string title, int totalPages, int totalChapters, string? uri, Group @group)
         {
             BookValidator.Validate(author, title, totalPages, totalChapters, uri);
             Author = author;
             Title = title;
             TotalPages = totalPages;
             TotalChapters = totalChapters;
+            Group = @group;
             Uri = uri == null ? null : new(uri);
         }
     }

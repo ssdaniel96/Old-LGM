@@ -2,7 +2,7 @@
 
 using LGM.Domain.Entities.Base;
 using LGM.Domain.Entities.Books;
-using LGM.Domain.Entities.People;
+using LGM.Domain.Entities.Groups;
 
 namespace LGM.Domain.Entities.Readings
 {

@@ -1,19 +1,20 @@
 ﻿using LGM.Domain.Entities.Base;
+using LGM.Domain.Entities.Groups;
 using LGM.Domain.Validators.Entities.People;
 
 namespace LGM.Domain.Entities.People
 {
-    public sealed class Collaborator : Entity
+    public sealed class Member : Entity
     {
         public string Name { get; private set; }
 
-        public IReadOnlyCollection<Squad> Squads => _squads.AsReadOnly();
-        private readonly List<Squad> _squads = new();
+        public Group Group { get; private set; }
 
-        public Collaborator(string name)
+        public Member(string name, Group @group)
         {
             CollaboratorValidator.ValidateName(name);
             Name = name;
+            Group = @group;
         }
     }
 }

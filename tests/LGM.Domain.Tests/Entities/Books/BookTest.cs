@@ -1,5 +1,7 @@
 ﻿using FluentAssertions;
 using LGM.Domain.Entities.Books;
+using LGM.Domain.Entities.Groups;
+using LGM.Domain.Enums.Groups;
 using LGM.Domain.Exceptions.Validations;
 using LGM.Domain.Tests.Helpers;
 using System;
@@ -9,6 +11,17 @@ namespace LGM.Domain.Tests.Entities.Books
 {
     public class BookTest
     {
+        private static GroupIdentity GetValidGroupIdentity()
+        {
+            return new(11231233, SourceTypeEnum.Telegram);
+        }
+
+        private static Group GetValidGroup()
+        {
+            return new("Descrição válida", GetValidGroupIdentity());
+        }
+
+
         [Fact]
         public void Create_Valid_NoExceptions()
         {
@@ -18,7 +31,7 @@ namespace LGM.Domain.Tests.Entities.Books
             int totalPages = 400,
                 totalChapters = 40;
 
-            Action createBook = () => _ = new Book(author, title, totalPages, totalChapters, uri);
+            Action createBook = () => _ = new Book(author, title, totalPages, totalChapters, uri, GetValidGroup());
             createBook.Should().NotThrow<Exception>();
         }
 
@@ -31,7 +44,7 @@ namespace LGM.Domain.Tests.Entities.Books
             int totalPages = 400,
                 totalChapters = 40;
 
-            Action createBook = () => _ = new Book(author, title, totalPages, totalChapters, uri);
+            Action createBook = () => _ = new Book(author, title, totalPages, totalChapters, uri, GetValidGroup());
             createBook.Should().NotThrow<Exception>();
         }
 
@@ -54,7 +67,7 @@ namespace LGM.Domain.Tests.Entities.Books
                 Uri = new Uri(uri)
             };
 
-            Book book = new(author, title, totalPages, totalChapters, uri);
+            Book book = new(author, title, totalPages, totalChapters, uri, GetValidGroup());
 
             book.Should().BeEquivalentTo(expectedBook);
         }
@@ -78,7 +91,7 @@ namespace LGM.Domain.Tests.Entities.Books
                 Uri = (Uri?)null
             };
 
-            Book book = new(author, title, totalPages, totalChapters, uri);
+            Book book = new(author, title, totalPages, totalChapters, uri, GetValidGroup());
 
             book.Should().BeEquivalentTo(expectedBook);
         }
@@ -97,7 +110,7 @@ namespace LGM.Domain.Tests.Entities.Books
             int totalPages = 400,
                 totalChapters = 40;
 
-            Action createBook = () => _ = new Book(invalidAuthor, title, totalPages, totalChapters, uri);
+            Action createBook = () => _ = new Book(invalidAuthor, title, totalPages, totalChapters, uri, GetValidGroup());
             createBook.Should().Throw<ValidationException>();
         }
 
@@ -115,7 +128,7 @@ namespace LGM.Domain.Tests.Entities.Books
             int totalPages = 400,
                 totalChapters = 40;
 
-            Action createBook = () => _ = new Book(author, invalidTitle, totalPages, totalChapters, uri);
+            Action createBook = () => _ = new Book(author, invalidTitle, totalPages, totalChapters, uri, GetValidGroup());
             createBook.Should().Throw<ValidationException>();
         }
 
@@ -129,7 +142,7 @@ namespace LGM.Domain.Tests.Entities.Books
                 uri = "http://centrowhite.org.br/files/ebooks/egw/O%20Desejado%20de%20Todas%20as%20Na%C3%A7%C3%B5es.pdf";
             int totalChapters = 40;
 
-            Action createBook = () => _ = new Book(author, title, invalidTotalPages, totalChapters, uri);
+            Action createBook = () => _ = new Book(author, title, invalidTotalPages, totalChapters, uri, GetValidGroup());
             createBook.Should().Throw<ValidationException>();
         }
 
@@ -143,7 +156,7 @@ namespace LGM.Domain.Tests.Entities.Books
                 uri = "http://centrowhite.org.br/files/ebooks/egw/O%20Desejado%20de%20Todas%20as%20Na%C3%A7%C3%B5es.pdf";
             int totalPages = 400;
 
-            Action createBook = () => _ = new Book(author, title, totalPages, invalidTotalChapters, uri);
+            Action createBook = () => _ = new Book(author, title, totalPages, invalidTotalChapters, uri, GetValidGroup());
             createBook.Should().Throw<ValidationException>();
         }
 
@@ -160,7 +173,7 @@ namespace LGM.Domain.Tests.Entities.Books
             int totalPages = 400,
                 totalChapters = 40;
 
-            Action createBook = () => _ = new Book(author, title, totalPages, totalChapters, invalidUri);
+            Action createBook = () => _ = new Book(author, title, totalPages, totalChapters, invalidUri, GetValidGroup());
             createBook.Should().Throw<ValidationException>();
         }
 
