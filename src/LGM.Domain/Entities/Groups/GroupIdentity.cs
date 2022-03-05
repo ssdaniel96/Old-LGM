@@ -3,7 +3,7 @@ using LGM.Domain.Enums.Groups;
 
 namespace LGM.Domain.Entities.Groups
 {
-    public class GroupIdentity : Entity
+    public sealed class GroupIdentity : Entity
     {
         public GroupIdentity(int sourceId, SourceTypeEnum sourceTypeEnum)
         {
