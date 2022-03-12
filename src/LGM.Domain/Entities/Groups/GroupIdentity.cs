@@ -5,13 +5,13 @@ namespace LGM.Domain.Entities.Groups
 {
     public sealed class GroupIdentity : Entity
     {
-        public GroupIdentity(int sourceId, SourceTypeEnum sourceTypeEnum)
+        public GroupIdentity(string sourceId, SourceTypeEnum sourceTypeEnum)
         {
             SourceId = sourceId;
             SourceTypeEnum = sourceTypeEnum;
         }
 
-        public int SourceId { get; private set; } // Id do grupo do telegram, discord etc.
+        public string SourceId { get; private set; } // Id do grupo do telegram, discord etc.
         public SourceTypeEnum SourceTypeEnum { get; private set; }
 
 

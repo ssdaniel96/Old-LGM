@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LGM.Adapter\LGM.Adapter.csproj" />
+    <ProjectReference Include="..\LGM.DTOS\LGM.DTOS.csproj" />
+    <ProjectReference Include="..\src\LGM.Domain\LGM.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
