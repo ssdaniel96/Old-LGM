@@ -7,11 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LGM.Domain", "src\LGM.Domai
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LGM.Domain.Tests", "tests\LGM.Domain.Tests\LGM.Domain.Tests.csproj", "{0178CBFE-32B8-49B4-A18E-0531B942E6D7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LGM.Application", "LGM.Application\LGM.Application.csproj", "{22FD2F35-4C04-4E6E-95B0-5BCA350BE1C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LGM.Application", "src\LGM.Application\LGM.Application.csproj", "{22FD2F35-4C04-4E6E-95B0-5BCA350BE1C5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LGM.Adapter", "LGM.Adapter\LGM.Adapter.csproj", "{3DA44FA2-11DF-4960-96FF-C0E76F490368}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LGM.Adapter", "src\LGM.Adapter\LGM.Adapter.csproj", "{3DA44FA2-11DF-4960-96FF-C0E76F490368}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LGM.DTOS", "LGM.DTOS\LGM.DTOS.csproj", "{24F8882D-43F6-413D-A337-9A6A08B0F412}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LGM.DTOS", "src\LGM.DTOS\LGM.DTOS.csproj", "{24F8882D-43F6-413D-A337-9A6A08B0F412}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{4FD00C68-E742-496D-B8B4-98D5618402E6}"
 EndProject
@@ -23,6 +23,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".config", ".config", "{02E8
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{F4AF13DA-B423-4445-89F2-90487F97E3E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LGM.Repository", "src\LGM.Repository\LGM.Repository.csproj", "{223AA842-0881-4304-82C2-AF42C0F81B62}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,6 +54,10 @@ Global
 		{24F8882D-43F6-413D-A337-9A6A08B0F412}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24F8882D-43F6-413D-A337-9A6A08B0F412}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24F8882D-43F6-413D-A337-9A6A08B0F412}.Release|Any CPU.Build.0 = Release|Any CPU
+		{223AA842-0881-4304-82C2-AF42C0F81B62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{223AA842-0881-4304-82C2-AF42C0F81B62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{223AA842-0881-4304-82C2-AF42C0F81B62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{223AA842-0881-4304-82C2-AF42C0F81B62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +68,7 @@ Global
 		{22FD2F35-4C04-4E6E-95B0-5BCA350BE1C5} = {4FD00C68-E742-496D-B8B4-98D5618402E6}
 		{3DA44FA2-11DF-4960-96FF-C0E76F490368} = {DC69F5E4-6031-4B93-A067-FFCBC0782A84}
 		{24F8882D-43F6-413D-A337-9A6A08B0F412} = {DC69F5E4-6031-4B93-A067-FFCBC0782A84}
+		{223AA842-0881-4304-82C2-AF42C0F81B62} = {F4AF13DA-B423-4445-89F2-90487F97E3E9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6A57D47F-E060-4B3E-B6BD-2AC1C3E889C8}

@@ -9,7 +9,11 @@
   <ItemGroup>
     <ProjectReference Include="..\LGM.Adapter\LGM.Adapter.csproj" />
     <ProjectReference Include="..\LGM.DTOS\LGM.DTOS.csproj" />
-    <ProjectReference Include="..\src\LGM.Domain\LGM.Domain.csproj" />
+    <ProjectReference Include="..\LGM.Domain\LGM.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
   </ItemGroup>
 
 </Project>
