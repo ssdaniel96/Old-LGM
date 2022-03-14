@@ -2,6 +2,6 @@
 public class InsertGroupDto
 {
     public string Description { get; set; }
-    public InsertGroupIdentityDto InsertGroupIdentityDto { get; set; }
+    public GroupIdentityDto GroupIdentityDto { get; set; }
 }
 
