@@ -7,17 +7,22 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LGM.Domain", "src\LGM.Domai
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LGM.Domain.Tests", "tests\LGM.Domain.Tests\LGM.Domain.Tests.csproj", "{0178CBFE-32B8-49B4-A18E-0531B942E6D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LGM.Application", "LGM.Application\LGM.Application.csproj", "{22FD2F35-4C04-4E6E-95B0-5BCA350BE1C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LGM.Application", "LGM.Application\LGM.Application.csproj", "{22FD2F35-4C04-4E6E-95B0-5BCA350BE1C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LGM.Adapter", "LGM.Adapter\LGM.Adapter.csproj", "{3DA44FA2-11DF-4960-96FF-C0E76F490368}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LGM.Adapter", "LGM.Adapter\LGM.Adapter.csproj", "{3DA44FA2-11DF-4960-96FF-C0E76F490368}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LGM.DTOS", "LGM.DTOS\LGM.DTOS.csproj", "{24F8882D-43F6-413D-A337-9A6A08B0F412}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LGM.DTOS", "LGM.DTOS\LGM.DTOS.csproj", "{24F8882D-43F6-413D-A337-9A6A08B0F412}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{4FD00C68-E742-496D-B8B4-98D5618402E6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{5F374DD0-A9E6-4D1A-AB44-BBFAA5B8DD69}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shareds", "Shareds", "{DC69F5E4-6031-4B93-A067-FFCBC0782A84}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".config", ".config", "{02E89A56-D4F7-4BB0-9609-747D861AC669}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

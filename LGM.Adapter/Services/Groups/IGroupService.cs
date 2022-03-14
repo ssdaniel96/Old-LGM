@@ -4,5 +4,5 @@ namespace LGM.Adapter.Services.Groups;
 
 public interface IGroupService
 {
-    Task InsertAsync(InsertGroupDto insertGroupDto, InsertGroupIdentityDto insertGroupIdentityDto);
+    Task<GroupDto> InsertAsync(InsertGroupDto insertGroupDto);
 }
