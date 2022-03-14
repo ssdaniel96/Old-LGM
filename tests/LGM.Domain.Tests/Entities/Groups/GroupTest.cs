@@ -4,18 +4,19 @@ using LGM.Domain.Entities.People;
 using LGM.Domain.Entities.Readings;
 using LGM.Domain.Enums.Groups;
 using LGM.Domain.Tests.Helpers;
+using LGM.Domain.ValueObjects.Groups;
 using System;
 using System.Collections.Generic;
 using Xunit;
 
-namespace LGM.Domain.Tests.Entities.People;
+namespace LGM.Domain.Tests.Entities.Groups;
 
 public class GroupTest
 {
 
     private GroupIdentity GetValidGroupIdentty()
     {
-        return new(11231233, SourceTypeEnum.Telegram);
+        return new("11231233", SourceTypeEnum.Telegram);
     }
 
 
@@ -36,11 +37,9 @@ public class GroupTest
             ReadingPlans = new List<ReadingPlan>().AsReadOnly(),
             GroupIdentity = new
             {
-                Id = 0,
-                SourceId = 11231233,
+                SourceId = "11231233",
                 SourceTypeEnum = SourceTypeEnum.Telegram
             }
-
         };
 
         var group = new Group("Descrição válida", GetValidGroupIdentty());
