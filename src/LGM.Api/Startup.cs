@@ -1,4 +1,6 @@
-﻿namespace LGM.Api;
+﻿using LGM.IoC.Services;
+
+namespace LGM.Api;
 
 public class Startup : IStartup
 {
@@ -14,6 +16,7 @@ public class Startup : IStartup
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
+        services.AddInfrastructure(Configuration);
     }
 
     public void Configure(WebApplication app, IWebHostEnvironment environment)

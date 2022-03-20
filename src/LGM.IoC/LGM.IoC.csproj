@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Scrutor" Version="4.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\LGM.Adapter\LGM.Adapter.csproj" />
     <ProjectReference Include="..\LGM.Application\LGM.Application.csproj" />
     <ProjectReference Include="..\LGM.Domain\LGM.Domain.csproj" />
