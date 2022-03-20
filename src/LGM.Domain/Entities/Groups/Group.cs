@@ -1,6 +1,7 @@
 ﻿// ReSharper disable CollectionNeverUpdated.Local
 
 using LGM.Domain.Entities.Base;
+using LGM.Domain.Entities.Books;
 using LGM.Domain.Entities.People;
 using LGM.Domain.Entities.Readings;
 using LGM.Domain.Validators.Entities.People;
@@ -17,6 +18,8 @@ public sealed class Group : Entity
 
     public IReadOnlyCollection<ReadingPlan> ReadingPlans => _readingPlans.AsReadOnly();
     private readonly List<ReadingPlan> _readingPlans = new();
+
+    public IReadOnlyCollection<Book> Books = new List<Book>();
 
     public Group(string description, GroupIdentity groupIdentity)
     {

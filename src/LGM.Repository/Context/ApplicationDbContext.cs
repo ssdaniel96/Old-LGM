@@ -2,6 +2,7 @@
 
 using LGM.Domain.Entities.Groups;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace LGM.Repository.Context
 {
@@ -14,6 +15,11 @@ namespace LGM.Repository.Context
 #pragma warning restore CS8618 
         {
 
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
     }
 }
