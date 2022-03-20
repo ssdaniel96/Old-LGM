@@ -1,4 +1,4 @@
-﻿using LGM.IoC.Services;
+﻿using LGM.IoC.ServicesCollection;
 
 namespace LGM.Api;
 
