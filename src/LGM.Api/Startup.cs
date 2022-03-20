@@ -31,7 +31,6 @@ public class Startup : IStartup
 
         app.MapControllers();
     }
-
 }
 
 public interface IStartup
