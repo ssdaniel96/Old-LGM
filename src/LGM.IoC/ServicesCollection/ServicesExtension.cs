@@ -32,23 +32,12 @@ namespace LGM.IoC.ServicesCollection
 
         private static IServiceCollection AddAdaptersDependencies(this IServiceCollection services)
         {
-            //services.Scan(scan => {
-            //    scan.FromAssemblyDependencies(
-            //            Assembly.GetEntryAssembly()
-            //            ?? throw new ArgumentException("Entry Assembly não pode ser nulo na injeção"))
-            //        .AddClasses(classes => classes.Where(
-            //            c => c.Name.EndsWith("Repository") ||
-            //                 c.Name.EndsWith("Service")))
-            //        .UsingRegistrationStrategy(RegistrationStrategy.Skip)
-            //        .AsMatchingInterface()
-            //        .WithScopedLifetime();
-            //});
-
             services.Scan(scan => {
                 scan.FromDependencyContext(DependencyContext.Default)
                     .AddClasses(classes => classes.Where(
-                        c => c.Name.EndsWith("Repository") ||
-                             c.Name.EndsWith("Service") && c.AssemblyQualifiedName!.Contains("LGM")))
+                        c => c.Name.EndsWith("Repository")
+                          || c.Name.EndsWith("Service")
+                             && c.AssemblyQualifiedName!.Contains("LGM")))
                     .UsingRegistrationStrategy(RegistrationStrategy.Skip)
                     .AsMatchingInterface()
                     .WithScopedLifetime();
