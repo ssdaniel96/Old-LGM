@@ -1,4 +1,5 @@
-﻿using LGM.IoC.ServicesCollection;
+﻿using LGM.Api.Filters;
+using LGM.IoC.ServicesCollection;
 
 namespace LGM.Api;
 
@@ -17,6 +18,10 @@ public class Startup : IStartup
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen();
         services.AddInfrastructure(Configuration);
+
+        services.AddMvcCore(config => {
+            config.Filters.Add<ExceptionFilter>();
+        });
     }
 
     public void Configure(WebApplication app, IWebHostEnvironment environment)
