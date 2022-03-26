@@ -1,12 +1,12 @@
-﻿using LGM.Adapter.Repositories.HealthChecks;
-using LGM.Application.Mappings.Groups;
+﻿using LGM.Application.Mappings.Groups;
 using LGM.DTOS.Options;
 using LGM.Repository.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyModel;
 using Microsoft.Extensions.Logging;
-using System.Reflection;
+using Scrutor;
 
 namespace LGM.IoC.ServicesCollection
 {
@@ -18,26 +18,38 @@ namespace LGM.IoC.ServicesCollection
             services.AddDatabase(configuration)
                 .AddOptions(configuration)
                 .AddMappers()
-                .AddDependencies();
+                .AddAdaptersDependencies();
 
             return services;
         }
 
-        private static IServiceCollection AddMappers(this IServiceCollection services) =>
+        private static IServiceCollection AddMappers(this IServiceCollection services)
+        {
             services.AddAutoMapper(typeof(DomainToDtoMappingProfile).Assembly);
 
-        private static IServiceCollection AddDependencies(this IServiceCollection services)
-        {
-            services.Scan(scan => {
-                var assemblies = new Assembly[] {
-                    Assembly.GetEntryAssembly(), // LGM.Api
-                    typeof(IHealthCheckRepository).Assembly, //LGM.Adapter
-                    typeof(DomainToDtoMappingProfile).Assembly, //LGM.Application
-                    typeof(ApplicationDbContext).Assembly //LGM.Repository
-                };
+            return services;
+        }
 
-                scan.FromAssemblies(assemblies)
-                    .AddClasses()
+        private static IServiceCollection AddAdaptersDependencies(this IServiceCollection services)
+        {
+            //services.Scan(scan => {
+            //    scan.FromAssemblyDependencies(
+            //            Assembly.GetEntryAssembly()
+            //            ?? throw new ArgumentException("Entry Assembly não pode ser nulo na injeção"))
+            //        .AddClasses(classes => classes.Where(
+            //            c => c.Name.EndsWith("Repository") ||
+            //                 c.Name.EndsWith("Service")))
+            //        .UsingRegistrationStrategy(RegistrationStrategy.Skip)
+            //        .AsMatchingInterface()
+            //        .WithScopedLifetime();
+            //});
+
+            services.Scan(scan => {
+                scan.FromDependencyContext(DependencyContext.Default)
+                    .AddClasses(classes => classes.Where(
+                        c => c.Name.EndsWith("Repository") ||
+                             c.Name.EndsWith("Service") && c.AssemblyQualifiedName!.Contains("LGM")))
+                    .UsingRegistrationStrategy(RegistrationStrategy.Skip)
                     .AsMatchingInterface()
                     .WithScopedLifetime();
             });
