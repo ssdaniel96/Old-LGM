@@ -22,8 +22,8 @@ public sealed class ReadingPlanMapping : IEntityTypeConfiguration<ReadingPlan>
             .IsRequired();
 
         builder.HasOne(p => p.Progression)
-            .WithOne()
-            .HasForeignKey("ProgressionId")
+            .WithOne(p => p.ReadingPlan)
+            .OnDelete(DeleteBehavior.Restrict)
             .IsRequired();
 
         builder.ToTable("ReadingPlans", "reading");

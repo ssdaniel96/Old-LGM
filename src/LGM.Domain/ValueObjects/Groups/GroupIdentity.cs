@@ -4,25 +4,28 @@ namespace LGM.Domain.ValueObjects.Groups;
 
 public sealed class GroupIdentity
 {
-    public GroupIdentity(string sourceId, SourceTypeEnum sourceTypeEnum)
+    private GroupIdentity() { }
+
+    public GroupIdentity(string sourceId, SourceTypeEnum sourceTypeId)
     {
         SourceId = sourceId;
-        SourceTypeEnum = sourceTypeEnum;
+        SourceTypeId = sourceTypeId;
     }
 
     public string SourceId { get; private set; } // Id do grupo do telegram, discord etc.
-    public SourceTypeEnum SourceTypeEnum { get; private set; }
+    public SourceTypeEnum SourceTypeId { get; private set; }
+
 
     public override bool Equals(object? obj)
     {
         if (obj is GroupIdentity @other)
         {
             return SourceId == other.SourceId
-                   && SourceTypeEnum == other.SourceTypeEnum;
+                   && SourceTypeId == other.SourceTypeId;
         }
 
         return false;
     }
 
-    public override int GetHashCode() => SourceId.GetHashCode() ^ SourceTypeEnum.GetHashCode();
+    public override int GetHashCode() => SourceId.GetHashCode() ^ SourceTypeId.GetHashCode();
 }

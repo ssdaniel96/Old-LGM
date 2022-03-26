@@ -12,16 +12,19 @@ public sealed class ReminderMapping : IEntityTypeConfiguration<Reminder>
         builder.HasOne(p => p.KickOf)
             .WithMany()
             .HasForeignKey("KickOffMemberId")
+            .OnDelete(DeleteBehavior.Restrict)
             .IsRequired();
 
         builder.HasOne(p => p.Responsible)
             .WithMany()
             .HasForeignKey("ResponsibleMemberId")
+            .OnDelete(DeleteBehavior.Restrict)
             .IsRequired();
 
         builder.HasOne(p => p.Prayer)
             .WithMany()
             .HasForeignKey("PrayerMemberId")
+            .OnDelete(DeleteBehavior.Restrict)
             .IsRequired();
 
         builder.Property(p => p.Chapter)

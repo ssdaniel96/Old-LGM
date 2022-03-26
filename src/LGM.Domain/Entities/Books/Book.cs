@@ -13,6 +13,7 @@ namespace LGM.Domain.Entities.Books
         public Uri? Uri { get; private set; }
         public Group Group { get; private set; }
 
+        private Book() { }
         public Book(string author, string title, int totalPages, int totalChapters, string? uri, Group @group)
         {
             BookValidator.Validate(author, title, totalPages, totalChapters, uri);

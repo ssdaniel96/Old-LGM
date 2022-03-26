@@ -10,6 +10,7 @@ namespace LGM.Domain.Entities.People
 
         public Group Group { get; private set; }
 
+        private Member() { }
         public Member(string name, Group @group)
         {
             CollaboratorValidator.ValidateName(name);
