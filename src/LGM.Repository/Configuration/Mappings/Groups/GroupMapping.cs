@@ -1,4 +1,5 @@
 ﻿using LGM.Domain.Entities.Groups;
+using LGM.Domain.Enums.Groups;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -14,7 +15,8 @@ public sealed class GroupMapping : IEntityTypeConfiguration<Group>
             .IsRequired();
 
         builder.OwnsOne(p => p.GroupIdentity)
-            .Property(p => p.SourceTypeEnum)
+            .Property(p => p.SourceTypeId)
+            .HasConversion(p => (int)p, p => (SourceTypeEnum)p)
             .IsRequired();
 
         builder.Property(p => p.Description)

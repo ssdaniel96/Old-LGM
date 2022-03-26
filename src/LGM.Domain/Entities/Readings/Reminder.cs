@@ -13,6 +13,7 @@ namespace LGM.Domain.Entities.Readings
         public int PageNumber { get; private set; }
         public int Paragraph { get; private set; }
 
+        private Reminder() { }
         public Reminder(
             Member kickOf,
             Member responsible,

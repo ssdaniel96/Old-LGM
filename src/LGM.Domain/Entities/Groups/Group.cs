@@ -21,6 +21,7 @@ public sealed class Group : Entity
 
     public IReadOnlyCollection<Book> Books = new List<Book>();
 
+    private Group() { }
     public Group(string description, GroupIdentity groupIdentity)
     {
         GroupValidator.Validate(description);

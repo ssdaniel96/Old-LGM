@@ -14,17 +14,6 @@ public sealed class SourceTypeMapping : IEntityTypeConfiguration<SourceType>
             .HasMaxLength(100)
             .IsRequired();
 
-        builder.HasData(new List<SourceType>() {
-            new("Telegram"),
-            new("Discord")
-        });
-
-        builder.HasMany<Group>()
-            .WithOne()
-            .HasForeignKey(p => p.GroupIdentity.SourceTypeEnum)
-            .OnDelete(DeleteBehavior.Restrict)
-            .IsRequired();
-
         builder.ToTable("SourceTypes", "group");
     }
 }

@@ -4,6 +4,8 @@ namespace LGM.Domain.Entities.Groups;
 
 public sealed class SourceType : Entity
 {
+
+    private SourceType() { }
     public SourceType(string description)
     {
         Description = description;

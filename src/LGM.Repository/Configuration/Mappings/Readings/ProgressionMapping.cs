@@ -18,12 +18,6 @@ public sealed class ProgressionMapping : IEntityTypeConfiguration<Progression>
         builder.Property(p => p.Paragraph)
             .IsRequired();
 
-        builder.HasOne<ReadingPlan>()
-            .WithOne(p => p.Progression)
-            .HasForeignKey("ReadingPlanId")
-            .OnDelete(DeleteBehavior.Restrict)
-            .IsRequired();
-
         builder.ToTable("Progressions", "reading");
     }
 }
