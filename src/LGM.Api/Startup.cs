@@ -21,6 +21,7 @@ public class Startup : IStartup
 
         services.AddMvcCore(config => {
             config.Filters.Add<ExceptionFilter>();
+            config.Filters.Add<TransactionFilter>();
         });
     }
 
