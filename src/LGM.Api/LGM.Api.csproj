@@ -22,4 +22,8 @@
     <ProjectReference Include="..\LGM.IoC\LGM.IoC.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Remove="appsettings.Development.json" />
+  </ItemGroup>
+
 </Project>
