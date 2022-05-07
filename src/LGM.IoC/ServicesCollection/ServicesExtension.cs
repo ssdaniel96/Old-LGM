@@ -59,7 +59,7 @@ namespace LGM.IoC.ServicesCollection
         {
             services.AddDbContext<ApplicationDbContext>(
                 opt =>
-                    opt.UseSqlServer(configuration.GetConnectionString("DefaultConnection"))
+                    opt.UseSqlServer(configuration.GetConnectionString("LgmConnection"))
                     .EnableSensitiveDataLogging()
                     .LogTo(Console.WriteLine, LogLevel.Information));
 
